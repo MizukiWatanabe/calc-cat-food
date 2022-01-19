@@ -9,7 +9,7 @@ export default function App() {
           猫のご飯残量計算
         </h1>
         <CalcGohanA />
-        <h2>一日の給餌量(カリカリの量)</h2>
+        {/* <h2>一日の給餌量(カリカリの量)</h2>
         <input type="number" placeholder="g単位で入力してください" />
         <h2>残りのご飯の重さ</h2>
         <input type="number" placeholder="g単位で入力してください" />
@@ -22,7 +22,7 @@ export default function App() {
           -買った日から今日までの日数
           <br />
           残りのご飯の日数=(御飯のフルの量/一日の量で日数が出る)ー買った日からの日数
-        </div>
+        </div> */}
       </div>
     </div>
   );
