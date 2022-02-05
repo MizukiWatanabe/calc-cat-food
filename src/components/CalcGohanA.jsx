@@ -7,13 +7,13 @@ export const CalcGohanA = () => {
   const inputRefObjectA = useRef(null);
   const inputRefObjectB = useRef(null);
   const start = 0;
-  const [text, setText] = useState(start);
+  const [calcDay, setCalcDay] = useState(start);
   const [valueShow, setValueShow] = useState(false);
 
   const handleClick = () => {
     let keisan = inputRefObjectA.current.value / inputRefObjectB.current.value;
     const setaaa = Math.trunc(keisan);
-    setText(setaaa);
+    setCalcDay(setaaa);
     setValueShow(true);
   };
 
@@ -64,7 +64,7 @@ export const CalcGohanA = () => {
             計算する
           </button>
         </div>
-        {valueShow ? <AnswerBlock text={text} /> : ''}
+        {valueShow ? <AnswerBlock day={calcDay} /> : ''}
       </form>
     </div>
   );
