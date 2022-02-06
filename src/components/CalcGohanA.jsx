@@ -11,9 +11,11 @@ export const CalcGohanA = () => {
   const [valueShow, setValueShow] = useState(false);
 
   const handleClick = () => {
-    let keisan = inputRefObjectA.current.value / inputRefObjectB.current.value;
-    const setaaa = Math.trunc(keisan);
-    setCalcDay(setaaa);
+    let calcFood =
+      inputRefObjectA.current.value / inputRefObjectB.current.value;
+    // 日数を調整
+    const adjustDay = Math.trunc(calcFood);
+    setCalcDay(adjustDay);
     setValueShow(true);
   };
 
@@ -28,7 +30,6 @@ export const CalcGohanA = () => {
               ref={inputRefObjectA}
               type="number"
               placeholder="g単位で入力してください"
-              id="a"
               defaultValue="2000"
               min="1"
               max="20000"
@@ -45,7 +46,6 @@ export const CalcGohanA = () => {
               ref={inputRefObjectB}
               type="number"
               placeholder="g単位で入力してください"
-              id="b"
               defaultValue="55"
               min="1"
               max="1000"
