@@ -44,7 +44,7 @@ export const AnswerBlock = ({ day }) => {
 
   return (
     <div className="mt-6">
-      <p id="c" className="text-center font-bold">
+      <p className="text-center font-bold">
         結果：
         <span className={` ${0 < day && day <= 10 && 'text-red-400'}`}>
           残り約{day}日分
