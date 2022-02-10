@@ -11,24 +11,32 @@ export const CalcGohanA = () => {
   const [valueShow, setValueShow] = useState(false);
 
   const handleClick = () => {
-    let calcFood;
+    setValueShow(false);
+    let calcFood =
+      inputRefObjectA.current.value / inputRefObjectB.current.value;
 
-    if (inputRefObjectA.current.value / inputRefObjectB.current.value) {
-      calcFood = inputRefObjectA.current.value / inputRefObjectB.current.value;
+    // 値に0が渡ってきたら計算前に止める
+    if (
+      inputRefObjectA.current.value < 1 ||
+      inputRefObjectB.current.value < 1
+    ) {
+      setValueShow(false); // falseがsetされない
+      console.log(valueShow);
+      alert('フォームの片方が0です！修正してください！');
+    }
+    if (calcFood) {
       // 日数を調整
       const adjustDay = Math.trunc(calcFood);
       setCalcDay(adjustDay);
       setValueShow(true);
-    } else if (
-      !Number.isFinite(
-        inputRefObjectA.current.value / inputRefObjectB.current.value
-      )
-    ) {
+    } else if (!Number.isFinite(calcFood)) {
       setValueShow(false);
       alert("can't");
     } else {
-      // 0/20のとき
+      // 0/20のとき 0なのに20になる
+      // 挙動確認して処理書く
       alert('omg');
+      setValueShow(true); //値確認のためtrue
     }
   };
 
