@@ -32,7 +32,21 @@ export const AnswerBlock = ({ day }) => {
           />
         </>
       );
-    } else {
+    } else if (!Number.isFinite(day)) {
+        return (
+          <>
+            <p className="my-4 text-center">
+              フォームの数字は適正ですか？
+              <br />
+              確認してみてください。
+          </p>
+          <Share
+            resultDay= {day}
+            resultText="フォームを再確認してください。"
+          />
+          </>
+        )
+    }  else {
       return (
         <>
           <p className="my-4 text-center">十分な残量があるようです。</p>
