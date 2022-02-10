@@ -4,22 +4,32 @@ import { InputLabel } from './InputLabel';
 import { AnswerBlock } from './AnswerBlock';
 
 export const CalcGohanA = () => {
-  const inputRefObjectA = useRef(100);
-  const inputRefObjectB = useRef(10);
+  const inputRefObjectA = useRef(null);
+  const inputRefObjectB = useRef(null);
   const start = 0;
   const [calcDay, setCalcDay] = useState(start);
   const [valueShow, setValueShow] = useState(false);
 
   const handleClick = () => {
-    let calcFood =
-      inputRefObjectA.current.value / inputRefObjectB.current.value;
-      if (!Number.isFinite(calcFood)) {
-        calcFood = "?";
-      }
-    // 日数を調整
-    const adjustDay = Math.trunc(calcFood);
-    setCalcDay(adjustDay);
-    setValueShow(true);
+    let calcFood;
+
+    if (inputRefObjectA.current.value / inputRefObjectB.current.value) {
+      calcFood = inputRefObjectA.current.value / inputRefObjectB.current.value;
+      // 日数を調整
+      const adjustDay = Math.trunc(calcFood);
+      setCalcDay(adjustDay);
+      setValueShow(true);
+    } else if (
+      !Number.isFinite(
+        inputRefObjectA.current.value / inputRefObjectB.current.value
+      )
+    ) {
+      setValueShow(false);
+      alert("can't");
+    } else {
+      // 0/20のとき
+      alert('omg');
+    }
   };
 
   return (
@@ -67,7 +77,7 @@ export const CalcGohanA = () => {
             計算する
           </button>
         </div>
-        {valueShow ? <AnswerBlock day={calcDay}  /> : ''}
+        {valueShow ? <AnswerBlock day={calcDay} /> : ''}
       </form>
     </div>
   );
