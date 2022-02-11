@@ -13,10 +13,40 @@ export const CalcGohanA = () => {
   const handleClick = () => {
     let calcFood =
       inputRefObjectA.current.value / inputRefObjectB.current.value;
-    // 日数を調整
-    const adjustDay = Math.trunc(calcFood);
-    setCalcDay(adjustDay);
-    setValueShow(true);
+
+    // 値に0が渡ってきたら計算前に止める
+    if (
+      inputRefObjectA.current.value < 1 ||
+      inputRefObjectB.current.value < 1
+    ) {
+      // console.log('===============');
+      // console.log(valueShow');
+      alert('フォームの片方が0です！入力値を修正してください！');
+      calcFood = false;
+    } else if (calcFood < 1) {
+      alert(
+        '現在のご飯の量を一日の給餌量が上回っています。入力値を確認してください。'
+      );
+      // console.log(calcFood);
+      calcFood = false;
+    } else {
+      console.log('else');
+    }
+
+    if (calcFood) {
+      // 日数を調整
+      const adjustDay = Math.trunc(calcFood);
+      setCalcDay(adjustDay);
+      setValueShow(true);
+    } else if (!Number.isFinite(calcFood)) {
+      setValueShow(false);
+      // console.log(valueShow, 'false');
+      // alert("can't");
+    } else {
+      // 0/20のとき 0なのに20になる
+      // alert('omg');
+      setValueShow(false);
+    }
   };
 
   return (
@@ -24,7 +54,7 @@ export const CalcGohanA = () => {
       <form className="col-start-3 col-span-8">
         <div className="text-center">
           <InputTitle title=" 残りのご飯の重さからおよその残りの日数を計算する" />
-          <InputLabel label="ご飯の現在の重さ(g)">
+          <InputLabel label="ご飯の現在の残量(g)">
             <input
               className="border border-gray-400 rounded-sm"
               ref={inputRefObjectA}
