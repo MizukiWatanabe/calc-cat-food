@@ -1,7 +1,12 @@
+/** @jsxImportSource @emotion/react */
+// import { css } from '@emotion/react';
+
 import { useRef, useState } from 'react';
 import { InputTitle } from './InputTitle';
 import { InputLabel } from './InputLabel';
 import { AnswerBlock } from './AnswerBlock';
+
+// import { mq } from '../utils/bp';
 
 export const CalcGohanA = () => {
   const inputRefObjectA = useRef(null);
@@ -30,7 +35,6 @@ export const CalcGohanA = () => {
       // console.log(calcFood);
       calcFood = false;
     } else {
-      console.log('else');
     }
 
     if (calcFood) {
@@ -51,9 +55,11 @@ export const CalcGohanA = () => {
 
   return (
     <div className="grid grid-cols-12">
-      <form className="col-start-3 col-span-8">
+      <form className="col-start-3 col-span-8 md:col-start-2 md:col-span-10">
         <div className="text-center">
-          <InputTitle title=" 残りのご飯の重さからおよその残りの日数を計算する" />
+          <InputTitle
+            title={`ご飯の現在の残量(g)と一日の給餌量(g)から残日数を計算する`}
+          />
           <InputLabel label="ご飯の現在の残量(g)">
             <input
               className="border border-gray-400 rounded-sm"
@@ -66,7 +72,7 @@ export const CalcGohanA = () => {
               maxLength="5"
               width="24"
             />
-            g
+            <span>g</span>
           </InputLabel>
         </div>
         <div className="text-center">
@@ -99,3 +105,13 @@ export const CalcGohanA = () => {
     </div>
   );
 };
+
+// const hotpink = css({
+//   color: 'green',
+//   [mq[0]]: {
+//     color: 'blue',
+//   },
+//   [mq[1]]: {
+//     color: 'hotpink',
+//   },
+// });
