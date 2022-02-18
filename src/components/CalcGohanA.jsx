@@ -26,7 +26,7 @@ export const CalcGohanA = () => {
     ) {
       // console.log('===============');
       // console.log(valueShow');
-      alert('フォームの片方が0です！入力値を修正してください！');
+      alert('入力欄に0以下の値が入力されています。入力値を修正してください。');
       calcFood = false;
     } else if (calcFood < 1) {
       alert(
