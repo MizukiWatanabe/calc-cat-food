@@ -6,7 +6,7 @@ import App from './App';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 // import './App.css';
 
-import imgUrl from './ogp.png';
+// import imgUrl from './ogp.png';
 
 ReactDOM.render(
   <HelmetProvider>
@@ -27,7 +27,7 @@ ReactDOM.render(
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={`https://calc-cat-food.vercel.app${imgUrl}`}
+          content={`https://calc-cat-food.vercel.app/ogp.png`}
         />
         <meta property="og:title" content="猫のご飯残量計算" />
         <meta
