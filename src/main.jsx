@@ -6,6 +6,8 @@ import App from './App';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 // import './App.css';
 
+import imgUrl from './ogp.png';
+
 ReactDOM.render(
   <HelmetProvider>
     <React.StrictMode>
@@ -20,6 +22,15 @@ ReactDOM.render(
           rel="icon alternate"
           type="image/png"
         />
+        <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#" />
+        <meta property="og:url" content="https://calc-cat-food.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={`https://calc-cat-food.vercel.app${imgUrl}`}
+        />
+        <meta property="og:title" content="猫のご飯残量計算" />
+        <meta name="twitter:card" content="summary"></meta>
       </Helmet>
       <App />
     </React.StrictMode>
