@@ -30,6 +30,10 @@ ReactDOM.render(
           content={`https://calc-cat-food.vercel.app${imgUrl}`}
         />
         <meta property="og:title" content="猫のご飯残量計算" />
+        <meta
+          property="description"
+          content="猫のご飯の重さと一日の給餌量から残量計算ができるアプリです。"
+        />
         <meta name="twitter:card" content="summary" />
       </Helmet>
       <App />
