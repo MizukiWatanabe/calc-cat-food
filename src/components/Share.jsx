@@ -4,6 +4,7 @@ export const Share = ({ resultDay, resultText }) => {
   let shareText = `残り:約${resultDay}日分 - ${resultText} | ${document.title}`;
   return (
     <TwitterShareButton
+      type="button"
       className="mx-auto flex items-center"
       url={location.href}
       title={shareText}
